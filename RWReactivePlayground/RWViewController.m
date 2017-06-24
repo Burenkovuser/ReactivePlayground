@@ -37,6 +37,58 @@
   
   // initially hide the failure message
   self.signInFailureText.hidden = YES;
+    
+    //Сигналы
+    
+    RACSignal *validUsernameSignal =
+    [self.usernameTextField.rac_textSignal
+     map:^id(NSString *text) {
+         return @([self isValidUsername:text]);
+     }];
+    
+    RACSignal *validPasswordSignal =
+    [self.passwordTextField.rac_textSignal
+     map:^id(NSString *text) {
+         return @([self isValidPassword:text]);
+     }];
+    
+    RAC(self.passwordTextField, backgroundColor) =
+    [validPasswordSignal
+     map:^id(NSNumber *passwordValid) {
+         return [passwordValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+     }];
+    
+    RAC(self.usernameTextField, backgroundColor) =
+    [validUsernameSignal
+     map:^id(NSNumber *passwordValid) {
+         return [passwordValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+     }];
+    
+    //приходят сигналы при вводе текста в поле имя если больше 3 символов (фильтер)
+    /*
+    [[[self.usernameTextField.rac_textSignal
+       map:^id(NSString *text) {
+           return @(text.length);
+       }]
+      filter:^BOOL(NSNumber *length) {
+          return [length integerValue] > 3;
+      }]
+     subscribeNext:^(id x) {
+         NSLog(@"%@", x);
+     }];
+    */
+     
+    /* //id value
+    [[self.usernameTextField.rac_textSignal
+      filter:^BOOL(id value) {
+          NSString *text = value;
+          return text.length > 3;
+      }]
+     subscribeNext:^(id x) {
+         NSLog(@"%@", x);
+     }];
+     */
+    
 }
 
 - (BOOL)isValidUsername:(NSString *)username {
@@ -67,9 +119,11 @@
 
 // updates the enabled state and style of the text fields based on whether the current username
 // and password combo is valid
+
 - (void)updateUIState {
-  self.usernameTextField.backgroundColor = self.usernameIsValid ? [UIColor clearColor] : [UIColor yellowColor];
-  self.passwordTextField.backgroundColor = self.passwordIsValid ? [UIColor clearColor] : [UIColor yellowColor];
+    //закоментированы - создан сигнал делающий тоже самое
+  //self.usernameTextField.backgroundColor = self.usernameIsValid ? [UIColor clearColor] : [UIColor yellowColor];
+  //self.passwordTextField.backgroundColor = self.passwordIsValid ? [UIColor clearColor] : [UIColor yellowColor];
   self.signInButton.enabled = self.usernameIsValid && self.passwordIsValid;
 }
 
