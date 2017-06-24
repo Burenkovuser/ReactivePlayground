@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52FC2427F42ED6A950BBBA09 /* Pods_RWReactivePlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4AD1FCFC1045D31ECF0931 /* Pods_RWReactivePlayground.framework */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26FAFCBC4577422CEEA664E3 /* Pods-RWReactivePlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWReactivePlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground.release.xcconfig"; sourceTree = "<group>"; };
+		5E4AD1FCFC1045D31ECF0931 /* Pods_RWReactivePlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RWReactivePlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,6 +56,7 @@
 		72A2883C18618A2E00DDD30A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		72A2885218620EA100DDD30A /* RWDummySignInService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDummySignInService.h; sourceTree = "<group>"; };
 		72A2885318620EA100DDD30A /* RWDummySignInService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDummySignInService.m; sourceTree = "<group>"; };
+		F2E6BF61DC963284762DFA13 /* Pods-RWReactivePlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RWReactivePlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 				72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */,
 				72A2882218618A2E00DDD30A /* UIKit.framework in Frameworks */,
 				72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */,
+				52FC2427F42ED6A950BBBA09 /* Pods_RWReactivePlayground.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,7 @@
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
+				FDC53787BFF4C538E7756391 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +110,7 @@
 				72A2881F18618A2E00DDD30A /* CoreGraphics.framework */,
 				72A2882118618A2E00DDD30A /* UIKit.framework */,
 				72A2883C18618A2E00DDD30A /* XCTest.framework */,
+				5E4AD1FCFC1045D31ECF0931 /* Pods_RWReactivePlayground.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +143,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		FDC53787BFF4C538E7756391 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2E6BF61DC963284762DFA13 /* Pods-RWReactivePlayground.debug.xcconfig */,
+				26FAFCBC4577422CEEA664E3 /* Pods-RWReactivePlayground.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72A2884C18618A2E00DDD30A /* Build configuration list for PBXNativeTarget "RWReactivePlayground" */;
 			buildPhases = (
+				35178A08520D1467CDC3EFDF /* [CP] Check Pods Manifest.lock */,
 				72A2881618618A2E00DDD30A /* Sources */,
 				72A2881718618A2E00DDD30A /* Frameworks */,
 				72A2881818618A2E00DDD30A /* Resources */,
+				7DC4243DBE14A49C0EAA8CA2 /* [CP] Embed Pods Frameworks */,
+				0001B80B9D0F99FF020BA3D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +247,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0001B80B9D0F99FF020BA3D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35178A08520D1467CDC3EFDF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7DC4243DBE14A49C0EAA8CA2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RWReactivePlayground/Pods-RWReactivePlayground-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72A2881618618A2E00DDD30A /* Sources */ = {
@@ -361,6 +428,7 @@
 		};
 		72A2884D18618A2E00DDD30A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2E6BF61DC963284762DFA13 /* Pods-RWReactivePlayground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -375,6 +443,7 @@
 		};
 		72A2884E18618A2E00DDD30A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26FAFCBC4577422CEEA664E3 /* Pods-RWReactivePlayground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
