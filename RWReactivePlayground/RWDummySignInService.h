@@ -12,6 +12,9 @@ typedef void (^RWSignInResponse)(BOOL);
 
 @interface RWDummySignInService : NSObject
 
-- (void)signInWithUsername:(NSString *)username password:(NSString *)password complete:(RWSignInResponse)completeBlock;
+//метод выводит имя пользователя, пароль и заблокировать завершение в качестве параметров. Данный блок выполняется, если вход выполнен успешно или когда это удается. 
+- (void)signInWithUsername:(NSString *)username
+                  password:(NSString *)password
+                  complete:(RWSignInResponse)completeBlock;
 
 @end

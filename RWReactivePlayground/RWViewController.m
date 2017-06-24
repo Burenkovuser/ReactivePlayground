@@ -76,6 +76,12 @@
     [signUpActiveSignal subscribeNext:^(NSNumber *signupActive) {
         self.signInButton.enabled = [signupActive boolValue];
     }];
+    //сигнал на нажатие кнопки rac_signalForControlEvents
+    [[self.signInButton
+      rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(id x) {
+         NSLog(@"button clicked");
+     }];
     
     //приходят сигналы при вводе текста в поле имя если больше 3 символов (фильтер)
     /*
