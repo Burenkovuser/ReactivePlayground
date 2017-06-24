@@ -16,8 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *signInButton;
 @property (weak, nonatomic) IBOutlet UILabel *signInFailureText;
 
-@property (nonatomic) BOOL passwordIsValid;
-@property (nonatomic) BOOL usernameIsValid;
+//@property (nonatomic) BOOL passwordIsValid;
+//@property (nonatomic) BOOL usernameIsValid;
 @property (strong, nonatomic) RWDummySignInService *signInService;
 
 @end
@@ -27,13 +27,15 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  [self updateUIState];
+  //[self updateUIState];
   
   self.signInService = [RWDummySignInService new];
   
   // handle text changes for both text fields
+    /*
   [self.usernameTextField addTarget:self action:@selector(usernameTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
   [self.passwordTextField addTarget:self action:@selector(passwordTextFieldChanged) forControlEvents:UIControlEventEditingChanged];
+     */
   
   // initially hide the failure message
   self.signInFailureText.hidden = YES;
@@ -63,6 +65,17 @@
      map:^id(NSNumber *passwordValid) {
          return [passwordValid boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
      }];
+    
+    //если сигналы от имени и пароля валидные то кнопка становится активана
+    RACSignal *signUpActiveSignal =
+    [RACSignal combineLatest:@[validUsernameSignal, validPasswordSignal]
+                      reduce:^id(NSNumber *usernameValid, NSNumber *passwordValid) {
+                          return @([usernameValid boolValue] && [passwordValid boolValue]);
+                      }];
+    //привязываем сигнал к кнопке
+    [signUpActiveSignal subscribeNext:^(NSNumber *signupActive) {
+        self.signInButton.enabled = [signupActive boolValue];
+    }];
     
     //приходят сигналы при вводе текста в поле имя если больше 3 символов (фильтер)
     /*
@@ -124,9 +137,9 @@
     //закоментированы - создан сигнал делающий тоже самое
   //self.usernameTextField.backgroundColor = self.usernameIsValid ? [UIColor clearColor] : [UIColor yellowColor];
   //self.passwordTextField.backgroundColor = self.passwordIsValid ? [UIColor clearColor] : [UIColor yellowColor];
-  self.signInButton.enabled = self.usernameIsValid && self.passwordIsValid;
+  //self.signInButton.enabled = self.usernameIsValid && self.passwordIsValid;
 }
-
+/*
 - (void)usernameTextFieldChanged {
   self.usernameIsValid = [self isValidUsername:self.usernameTextField.text];
   [self updateUIState];
@@ -136,5 +149,5 @@
   self.passwordIsValid = [self isValidPassword:self.passwordTextField.text];
   [self updateUIState];
 }
-
+*/
 @end
