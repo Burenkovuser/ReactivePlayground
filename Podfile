@@ -7,5 +7,5 @@ target 'RWReactivePlayground' do
    use_frameworks!
 
   # Pods for RWReactivePlayground
- pod 'ReactiveCocoa', '~> 3.0.0'
+ pod 'ReactiveCocoa', '~> 2.5.0'
 end
